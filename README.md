@@ -23,23 +23,15 @@ The website serves as the official landing page for the Echo Music application, 
 ## Project Structure
 
 ```
-Echo-Site/
+Echo-Music-Site/
 ├── index.html              # Main landing page
-├── download.html           # Download page
-├── obtainium.html          # Obtainium redirect page
-├── script.js               # Main JavaScript functionality
-├── styles.css              # Main stylesheet
-├── LICENSE                 # MIT License
+├── privacy.html            # Privacy Policy
+├── terms.html              # Terms of Service
+├── robots.txt              # Robots configuration
+├── sitemap.xml             # Sitemap
 ├── README.md               # This file
-├── Assets/                 # Static assets
-│   ├── Downloads/          # Download-related images
-│   ├── Screenshot/         # App screenshots
-│   ├── buttons/            # Social media buttons
-│   └── echo.png            # App icon
-└── p/                      # Additional pages
-    ├── contact.html
-    ├── privacy-policy.html
-    └── toc.html
+├── graph.png               # Open Graph image
+└── assets/                 # Static assets (images, icons)
 ```
 
 ---
@@ -54,8 +46,8 @@ Echo-Site/
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/EchoMusicApp/website.git
-   cd website
+   git clone https://github.com/EchoMusicApp/Echo-Music-Site.git
+   cd Echo-Music-Site
    ```
 
 2. Run locally:
@@ -87,7 +79,7 @@ Echo-Site/
 | Markup | HTML5 (Semantic markup with accessibility features) |
 | Styling | CSS3 (Flexbox, Grid, CSS Variables) |
 | Scripting | Vanilla JavaScript (ES6+) |
-| Typography | Google Fonts (Zalando Sans Expanded) |
+| Typography | Google Fonts (Inter, Unbounded) |
 | SEO | Schema.org structured data |
 
 ---
@@ -129,8 +121,8 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
 
 ### Branding Changes
 - Update app name and meta descriptions in `index.html`
-- Replace images in `Assets/` directory
-- Modify color scheme in `styles.css` CSS variables
+- Replace images in `assets/` directory
+- Modify color scheme in `<style>` tag within `index.html` CSS variables
 
 ### Content Updates
 - Edit feature descriptions in the Features section
@@ -171,7 +163,8 @@ Copyright (c) 2024 Echo Music
 
 - [Echo Music App Repository](https://github.com/EchoMusicApp)
 - [Official Website](https://echomusic.fun)
-- [Privacy Policy](https://echomusic.fun/p/privacy-policy.html)
+- [Privacy Policy](https://echomusic.fun/privacy.html)
+- [Terms of Service](https://echomusic.fun/terms.html)
 
 ---
 
