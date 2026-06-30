@@ -280,27 +280,20 @@
   border: 2px solid rgba(10, 10, 10, 0.08);
   border-radius: var(--radius-lg);
   overflow: hidden;
-  transition:
-    border-color 0.15s ease-out,
-    background-color 0.15s ease-out,
-    box-shadow 0.15s ease-out;
+
+  transition: all 0.3s ease;
+
   opacity: 0;
   transform: translateY(20px);
 }
 
 .faq-item:hover {
-  border-color: rgba(10, 10, 10, 0.2);
+  border-color: #d0c8b0;
 }
 
 .faq-item.visible {
   opacity: 1;
   transform: translateY(0);
-  transition:
-    opacity 0.6s ease,
-    transform 0.6s ease,
-    border-color 0.15s ease-out,
-    background-color 0.15s ease-out,
-    box-shadow 0.15s ease-out;
 }
 
 .faq-item.open {
@@ -326,20 +319,22 @@
 
 .faq-icon {
   font-size: 20px;
-  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.3s ease;
   color: var(--ink);
 }
 
-.faq-item.open .faq-icon {
-  transform: rotate(180deg);
+.faq-icon {
+  font-size: 20px;
+  color: var(--ink);
+  transition: transform 0.3s ease;
 }
 
 .faq-answer {
   max-height: 0;
   overflow: hidden;
   transition:
-    max-height 0.25s cubic-bezier(0.4, 0, 0.2, 1),
-    padding 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    max-height 0.4s ease,
+    padding 0.4s ease;
   padding: 0 var(--space-lg);
   color: var(--body);
 }
