@@ -1,20 +1,17 @@
 /* ==========================================================================
-1. DESIGN SYSTEM & DESIGN TOKENS
+DESIGN SYSTEM & DESIGN TOKENS
 ========================================================================== */
 :root {
-  /* Color Canvas & Surfaces */
   --canvas: #fffaf0;
   --surface-soft: #faf5e8;
   --surface-card: #f5f0e0;
   --surface-dark: #0a1a1a;
 
-  /* Typography Ink Spectrum */
   --ink: #0a0a0a;
   --body: #3a3a3a;
   --muted: #6a6a6a;
   --hairline: #e5e5e5;
 
-  /* Accent Dynamic Palettes */
   --accent-violet: #b8a4ed;
   --accent-pink: #ff9dd0;
   --accent-sky: #a7c7e7;
@@ -22,11 +19,9 @@
   --accent-ochre: #ffd05a;
   --accent-mint: #8fd9bf;
 
-  /* Status Specific Colors */
   --success: #10b981;
   --error: #ef4444;
 
-  /* Layout Spacing Scale */
   --space-xxs: 4px;
   --space-xs: 8px;
   --space-sm: 12px;
@@ -36,7 +31,6 @@
   --space-xxl: 48px;
   --space-section: 96px;
 
-  /* Border Radius System */
   --radius-xs: 6px;
   --radius-sm: 8px;
   --radius-md: 12px;
@@ -46,7 +40,7 @@
 }
 
 /* ==========================================================================
-2. GLOBAL RESETS & BASE ELEMENTS
+GLOBAL RESETS & BASE ELEMENTS
 ========================================================================== */
 * {
   box-sizing: border-box;
@@ -69,12 +63,9 @@ a {
 }
 
 /* ==========================================================================
-3. TYPOGRAPHY SYSTEM
+TYPOGRAPHY SYSTEM
 ========================================================================== */
-h1,
-h2,
-h3,
-.display-font {
+h1, h2, h3, .display-font {
   font-family: "Unbounded", sans-serif;
   color: var(--ink);
 }
@@ -85,55 +76,65 @@ h3,
   letter-spacing: -2.5px;
   line-height: 1;
 }
+
 .display-lg {
   font-size: 56px;
   font-weight: 500;
   letter-spacing: -2px;
   line-height: 1.05;
 }
+
 .display-md {
   font-size: 40px;
   font-weight: 500;
   letter-spacing: -1px;
   line-height: 1.1;
 }
+
 .display-sm {
   font-size: 32px;
   font-weight: 500;
   letter-spacing: -0.5px;
   line-height: 1.15;
 }
+
 .title-lg {
   font-size: 24px;
   font-weight: 600;
   line-height: 1.3;
 }
+
 .title-md {
   font-size: 18px;
   font-weight: 600;
   line-height: 1.4;
 }
+
 .title-sm {
   font-size: 16px;
   font-weight: 600;
   line-height: 1.4;
   color: var(--ink);
 }
+
 .body-md {
   font-size: 16px;
   font-weight: 400;
   line-height: 1.55;
 }
+
 .body-sm {
   font-size: 14px;
   font-weight: 400;
   line-height: 1.55;
 }
+
 .caption {
   font-size: 13px;
   font-weight: 500;
   line-height: 1.4;
 }
+
 .caption-uppercase {
   font-size: 12px;
   font-weight: 600;
@@ -142,7 +143,7 @@ h3,
 }
 
 /* ==========================================================================
-4. REUSABLE UTILITY CLASSES & CONTAINERS
+REUSABLE UTILITY CLASSES & CONTAINERS
 ========================================================================== */
 .container {
   max-width: 1280px;
@@ -171,9 +172,8 @@ h3,
 }
 
 /* ==========================================================================
-6. GLOBAL NAVIGATION HEADER
+GLOBAL NAVIGATION HEADER
 ========================================================================== */
-
 .nav-bar {
   position: fixed;
   top: 0;
@@ -212,8 +212,8 @@ h3,
 }
 
 /* ==========================================================================
-   5. INTERACTIVE UI COMPONENTS (BUTTONS)
-   ========================================================================== */
+INTERACTIVE UI COMPONENTS (BUTTONS)
+========================================================================== */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -238,4 +238,84 @@ h3,
   background-color: var(--surface-dark);
   color: #fff;
   border: none;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 4px 4px 0px var(--ink);
+}
+
+.btn-secondary {
+  background-color: var(--canvas);
+  color: var(--ink);
+  border: 1px solid var(--hairline);
+}
+
+.btn-secondary:hover {
+  background-color: var(--surface-soft);
+}
+
+.btn-secondary .ripple-span {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple-span {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  animation: ripple 0.6s linear;
+  background-color: rgba(255, 255, 255, 0.3);
+  pointer-events: none;
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* ==========================================================================
+RESPONSIVE MEDIA QUERIES & LAYOUT INTERPOLATIONS
+========================================================================== */
+@media (max-width: 1024px) {
+  .display-xl {
+    font-size: 56px;
+  }
+  .display-lg {
+    font-size: 48px;
+  }
+  .display-md {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .display-xl {
+    font-size: 40px;
+    letter-spacing: -1px;
+  }
+  .display-lg {
+    font-size: 32px;
+    letter-spacing: -0.5px;
+  }
+  .nav-inner {
+    padding: 0 24px;
+    height: 60px;
+  }
+  .nav-logo {
+    font-size: 18px;
+  }
+  .nav-logo-img {
+    width: 28px;
+    height: 28px;
+  }
+  .nav-action-btn {
+    height: 40px;
+  }
 }
