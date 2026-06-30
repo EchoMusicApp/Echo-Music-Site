@@ -24,14 +24,30 @@ The website serves as the official landing page for the Echo Music application, 
 
 ```
 Echo-Music-Site/
-├── index.html              # Main landing page
-├── privacy.html            # Privacy Policy
-├── terms.html              # Terms of Service
-├── robots.txt              # Robots configuration
-├── sitemap.xml             # Sitemap
-├── README.md               # This file
-├── graph.png               # Open Graph image
-└── assets/                 # Static assets (images, icons)
+├── README.md
+├── graph.png                    # Open Graph preview image
+└── site/
+    ├── index.html               # Landing page
+    ├── faq.html                 # Settings & FAQ
+    ├── privacy.html             # Privacy Policy
+    ├── status.html              # System Status
+    ├── terms.html               # Terms & Conditions
+    ├── robots.txt               # Search engine directives
+    ├── sitemap.xml              # XML sitemap
+    │
+    ├── assets/                  # Static assets
+    │
+    ├── css/                     # Stylesheets
+    │   ├── style.css            # Global styles, variables, utilities
+    │   ├── index.css            # Landing page styles
+    │   ├── faq.css              # FAQ page styles
+    │   ├── status.css           # Status page styles
+    │   └── document.css         # Privacy & Terms page styles
+    │
+    └── js/                      # JavaScript
+        ├── index.js             # Landing page & Support Bubble
+        ├── faq.js               # FAQ accordion & search
+        └── status.js            # Status page logic
 ```
 
 ---
