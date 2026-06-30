@@ -1,21 +1,11 @@
-/* ==========================================================================
-GLOBAL RESETS & BASE ELEMENTS
-========================================================================== */
 body {
   min-height: 100vh;
   padding-top: 100px;
 }
 
-/* ==========================================================================
-REUSABLE UTILITY CLASSES & CONTAINERS
-========================================================================== */
 .container {
   max-width: 800px;
 }
-
-/* ==========================================================================
-INTERACTIVE UI COMPONENTS (BUTTONS & CONTROLS)
-========================================================================== */
 
 .btn-primary:disabled {
   opacity: 0.7;
@@ -31,9 +21,6 @@ INTERACTIVE UI COMPONENTS (BUTTONS & CONTROLS)
   margin-bottom: 1.5rem;
 }
 
-/* ==========================================================================
-PAGE SPECIFIC COMPONENTS (HERO, TIMER, STATUS LIST)
-========================================================================== */
 .hero {
   text-align: center;
   margin-bottom: var(--space-xl);
@@ -153,9 +140,6 @@ PAGE SPECIFIC COMPONENTS (HERO, TIMER, STATUS LIST)
   background-color: var(--muted);
 }
 
-/* ==========================================================================
-RESPONSIVE MEDIA QUERIES
-========================================================================== */
 @media (max-width: 768px) {
   body {
     padding-top: 80px;

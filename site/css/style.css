@@ -1,6 +1,3 @@
-/* ==========================================================================
-DESIGN SYSTEM & DESIGN TOKENS
-========================================================================== */
 :root {
   --canvas: #fffaf0;
   --surface-soft: #faf5e8;
@@ -39,9 +36,6 @@ DESIGN SYSTEM & DESIGN TOKENS
   --radius-pill: 9999px;
 }
 
-/* ==========================================================================
-GLOBAL RESETS & BASE ELEMENTS
-========================================================================== */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -62,10 +56,10 @@ a {
   color: inherit;
 }
 
-/* ==========================================================================
-TYPOGRAPHY SYSTEM
-========================================================================== */
-h1, h2, h3, .display-font {
+h1,
+h2,
+h3,
+.display-font {
   font-family: "Unbounded", sans-serif;
   color: var(--ink);
 }
@@ -142,9 +136,6 @@ h1, h2, h3, .display-font {
   text-transform: uppercase;
 }
 
-/* ==========================================================================
-REUSABLE UTILITY CLASSES & CONTAINERS
-========================================================================== */
 .container {
   max-width: 1280px;
   margin: 0 auto;
@@ -171,9 +162,6 @@ REUSABLE UTILITY CLASSES & CONTAINERS
   margin-bottom: var(--space-xxl);
 }
 
-/* ==========================================================================
-GLOBAL NAVIGATION HEADER
-========================================================================== */
 .nav-bar {
   position: fixed;
   top: 0;
@@ -211,9 +199,6 @@ GLOBAL NAVIGATION HEADER
   border-radius: 8px;
 }
 
-/* ==========================================================================
-INTERACTIVE UI COMPONENTS (BUTTONS)
-========================================================================== */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -280,9 +265,6 @@ INTERACTIVE UI COMPONENTS (BUTTONS)
   }
 }
 
-/* ==========================================================================
-RESPONSIVE MEDIA QUERIES & LAYOUT INTERPOLATIONS
-========================================================================== */
 @media (max-width: 1024px) {
   .display-xl {
     font-size: 56px;
