@@ -3,60 +3,295 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirecting...</title>
-    <!-- Redirect after 2 seconds -->
-    <meta http-equiv="refresh" content="2;url=https://support.iad1tya.cyou/">
+    <title>Support Echo Music</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Unbounded:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="./assets/Echo.png">
     <style>
+        :root {
+            --canvas: #fffaf0;
+            --surface-soft: #faf5e8;
+            --surface-card: #f5f0e0;
+            --surface-dark: #0a1a1a;
+            --ink: #0a0a0a;
+            --body: #3a3a3a;
+            --muted: #6a6a6a;
+            --hairline: #e5e5e5;
+            
+            --accent-violet: #b8a4ed;
+            --accent-pink: #ff4d8b;
+            --radius-pill: 9999px;
+            --radius-xl: 24px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--canvas);
+            color: var(--body);
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #ffffff;
-            color: #000000;
+            min-height: 100vh;
             text-align: center;
+            overflow: hidden;
+            position: relative;
         }
-        .container {
-            padding: 20px;
+
+        /* Echo Music Background Gradient */
+        body::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 50% 50%, rgba(184, 164, 237, 0.15) 0%, rgba(255, 77, 139, 0.05) 25%, transparent 50%);
+            z-index: -1;
+            animation: rotate-gradient 20s linear infinite;
+            pointer-events: none;
         }
-        .spinner {
-            border: 4px solid rgba(0, 0, 0, 0.1);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            border-left-color: #000000;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 20px auto;
-        }
-        @keyframes spin {
+
+        @keyframes rotate-gradient {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
-        a {
-            color: #000000;
-            text-decoration: none;
-            margin-top: 15px;
-            display: inline-block;
-            font-size: 0.9em;
+
+        .card {
+            background-color: rgba(255, 250, 240, 0.6);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid var(--hairline);
+            padding: 48px 40px;
+            border-radius: var(--radius-xl);
+            max-width: 480px;
+            width: 90%;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.02);
+            transform: translateY(20px);
+            opacity: 0;
+            animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
-        a:hover {
-            text-decoration: underline;
+
+        @keyframes slideUp {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        h1 {
+            font-family: 'Unbounded', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--ink);
+            margin: 0 0 16px 0;
+            letter-spacing: -0.5px;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.55;
+            color: var(--body);
+            margin: 0 0 24px 0;
+        }
+
+        .highlight-box {
+            background-color: var(--surface-soft);
+            border: 1px solid var(--hairline);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 32px;
+            text-align: left;
+        }
+
+        .highlight-box p {
+            margin: 0;
+            font-size: 15px;
+            color: var(--ink);
+            font-weight: 600;
+        }
+
+        .highlight-box ul {
+            margin: 12px 0 0 0;
+            padding-left: 20px;
+            font-size: 14.5px;
+            color: var(--body);
+        }
+
+        .highlight-box li {
+            margin-bottom: 8px;
+        }
+
+        .highlight-box li:last-child {
+            margin-bottom: 0;
+        }
+
+        .progress-container {
+            width: 100%;
+            height: 6px;
+            background: var(--surface-card);
+            border-radius: var(--radius-pill);
+            overflow: hidden;
+            margin-bottom: 16px;
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background-color: var(--ink);
+            border-radius: var(--radius-pill);
+            transition: width 0.05s linear;
+        }
+
+        .redirect-text {
+            font-size: 14px;
+            color: var(--muted);
+            font-weight: 500;
+        }
+
+        .redirect-text span {
+            color: var(--ink);
+            font-weight: 600;
+        }
+        
+        /* Echo Music Button Style */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 1.0;
+            border-radius: var(--radius-pill);
+            height: 48px;
+            padding: 0 28px;
+            cursor: pointer;
+            transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+            margin-top: 24px;
+        }
+
+        .btn-primary {
+            background-color: var(--surface-dark);
+            color: #fff;
+            border: none;
+            width: 100%;
+        }
+
+        .btn:active {
+            transform: scale(0.96);
+        }
+
+        .ripple {
+            position: relative;
+            overflow: hidden;
+        }
+        .ripple-span {
+            position: absolute;
+            border-radius: 50%;
+            transform: scale(0);
+            animation: ripple 0.6s linear;
+            background-color: rgba(255, 255, 255, 0.3);
+            pointer-events: none;
+        }
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="spinner"></div>
-        <h2>Redirecting to the Developer support page...</h2>
-        <p>If you are not redirected automatically, <a href="https://support.iad1tya.cyou/">click here</a>.</p>
+    <div class="card">
+        <h1>Thank You!</h1>
+        <p>Your support helps keep Echo Music free and ad-free for everyone. But that's not all—I believe in giving back.</p>
+        
+        <div class="highlight-box">
+            <p>50% of your donation goes towards social welfare:</p>
+            <ul>
+                <li><strong>20%</strong> for Girls' Education</li>
+                <li><strong>30%</strong> for Old Age Homes</li>
+            </ul>
+        </div>
+
+        <div class="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+        <div class="redirect-text">
+            Redirecting to support page in <span id="countdown">5</span>s...
+        </div>
+        
+        <button class="btn btn-primary ripple" onclick="redirectNow(event)">Skip and Support Now</button>
     </div>
+
     <script>
-        // Fallback JavaScript redirect
-        setTimeout(function() {
-            window.location.href = "https://support.iad1tya.cyou/";
-        }, 2000);
+        const redirectUrl = "https://support.iad1tya.cyou/";
+        const totalTime = 5000;
+        const intervalTime = 50;
+        let elapsedTime = 0;
+        
+        const progressBar = document.getElementById('progress-bar');
+        const countdownEl = document.getElementById('countdown');
+        
+        function redirectNow(e) {
+            if (e && e.type !== 'click') return; // Prevent unexpected triggers if any
+            if (e) createRipple(e);
+            setTimeout(() => {
+                window.location.href = redirectUrl;
+            }, 300);
+        }
+
+        function createRipple(event) {
+            const button = event.currentTarget;
+            const circle = document.createElement("span");
+            const diameter = Math.max(button.clientWidth, button.clientHeight);
+            const radius = diameter / 2;
+            circle.style.width = circle.style.height = `${diameter}px`;
+            
+            const rect = button.getBoundingClientRect();
+            // Fallback to center if clientX/Y are undefined (like on programmatic clicks)
+            const x = event.clientX !== undefined ? event.clientX - rect.left : rect.width / 2;
+            const y = event.clientY !== undefined ? event.clientY - rect.top : rect.height / 2;
+            
+            circle.style.left = `${x - radius}px`;
+            circle.style.top = `${y - radius}px`;
+            circle.classList.add("ripple-span");
+            
+            const existingRipple = button.getElementsByClassName("ripple-span")[0];
+            if (existingRipple) {
+                existingRipple.remove();
+            }
+            button.appendChild(circle);
+        }
+
+        // Setup Ripple for button automatically (optional on mousedown for earlier feedback)
+        document.querySelectorAll('.ripple').forEach(btn => {
+            btn.addEventListener('mousedown', createRipple);
+        });
+
+        const timer = setInterval(() => {
+            elapsedTime += intervalTime;
+            const percentage = (elapsedTime / totalTime) * 100;
+            progressBar.style.width = percentage + '%';
+            
+            const remainingSeconds = Math.ceil((totalTime - elapsedTime) / 1000);
+            countdownEl.textContent = remainingSeconds;
+            
+            if (elapsedTime >= totalTime) {
+                clearInterval(timer);
+                window.location.href = redirectUrl;
+            }
+        }, intervalTime);
     </script>
 </body>
 </html>

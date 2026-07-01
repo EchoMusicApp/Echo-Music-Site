@@ -1109,7 +1109,7 @@
         <div id="lastfm-artist" style="font-size: 13px; color: var(--body); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 180px;"></div>
       </div>
     </a>
-    <a href="https://support.iad1tya.cyou" target="_blank" rel="noopener noreferrer" style="text-decoration: none; display: flex; flex-direction: column; align-items: flex-end; gap: 16px; pointer-events: none;">
+    <a href="./donate.html" target="_blank" rel="noopener noreferrer" style="text-decoration: none; display: flex; flex-direction: column; align-items: flex-end; gap: 16px; pointer-events: none;">
       <div class="support-msg-bubble">
         <span id="typewriter-text"></span><span class="cursor">|</span>
       </div>
@@ -1169,10 +1169,10 @@
 
     async function fetchLastFm() {
       try {
-        const res = await fetch('https://lastfm-last-played.biancarosa.com.br/iad1tya/latest-song');
+        const res = await fetch('https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=iad1tya&api_key=4a9f5581a9cdf20a699f540ac52a95c9&format=json&limit=1');
         if (res.ok) {
           const data = await res.json();
-          const track = data.track;
+          const track = data.recenttracks && data.recenttracks.track ? data.recenttracks.track[0] : null;
           if (track) {
             document.getElementById('lastfm-track').textContent = track.name;
             document.getElementById('lastfm-artist').textContent = track.artist['#text'];
